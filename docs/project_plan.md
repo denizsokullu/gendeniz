@@ -31,7 +31,8 @@ genweb/
 │   └── deploy.yml          # Build & push Docker images
 ├── apps/
 │   ├── data-explorer/      # Tabular data exploration app
-│   └── chat-ui/            # Chat interface app
+│   ├── chat-ui/            # Chat interface app
+│   └── 3d-visualization/   # Three.js 3D graphics app
 ├── libs/
 │   └── ui/                 # Shared UI component library
 ├── infra/docker/            # Dockerfiles per app
@@ -142,27 +143,55 @@ genweb/
 
 ---
 
-### Phase 5: Docker & Deployment
+### Phase 5: 3D Visualization App
 
-**Task 5.1: Create Dockerfiles** (Promptable)
+**Task 5.1: Scaffold 3D Visualization App** (Promptable)
+
+- Create `apps/3d-visualization/` with Vite + React
+- Add Three.js dependencies (@react-three/fiber, @react-three/drei, three)
+- Configure TypeScript for Three.js types
+
+**Task 5.2: Implement Fat Lines Demo** (Promptable)
+
+- Implement Hilbert 3D curve generator
+- Create Line2 with LineMaterial for fat lines rendering
+- Add OrbitControls for camera manipulation
+- Implement lil-gui controls for line parameters:
+  - Line type (Line2 vs gl.LINE)
+  - Line width
+  - Dashed lines with scale/gap controls
+  - World units toggle
+  - Alpha to coverage
+
+**Task 5.3: Add Dockerfile** (Promptable)
+
+- Create Dockerfile for 3d-visualization app
+- Update docker-compose.yml with new service
+- Update CI workflow for Docker builds
+
+---
+
+### Phase 6: Docker & Deployment
+
+**Task 6.1: Create Dockerfiles** (Promptable)
 
 - Multi-stage Dockerfile for each app (build + nginx)
 - Optimize for small image size
 - Handle pnpm workspace properly in Docker context
 
-**Task 5.2: Docker Compose Setup** (Promptable)
+**Task 6.2: Docker Compose Setup** (Promptable)
 
 - Create `docker-compose.yml` for local development
 - Run all apps on different ports
 - Add nginx reverse proxy (optional) for unified entry point
 
-**Task 5.3: GitHub Actions CI** (Promptable)
+**Task 6.3: GitHub Actions CI** (Promptable)
 
 - Create `.github/workflows/ci.yml`
 - Run lint, type-check, tests on all PRs
 - Cache pnpm dependencies
 
-**Task 5.4: GitHub Actions Deploy** (Promptable)
+**Task 6.4: GitHub Actions Deploy** (Promptable)
 
 - Create `.github/workflows/deploy.yml`
 - Build Docker images on merge to main
@@ -226,9 +255,10 @@ This project demonstrates:
 4. `pnpm lint` - no linting errors
 5. `pnpm dev --filter=data-explorer` - app runs locally
 6. `pnpm dev --filter=chat-ui` - app runs locally
-7. `docker-compose up` - all apps run in containers
-8. Push to GitHub - CI passes
-9. Merge to main - Docker images built and pushed
+7. `pnpm dev --filter=3d-visualization` - app runs locally
+8. `docker-compose up` - all apps run in containers
+9. Push to GitHub - CI passes
+10. Merge to main - Docker images built and pushed
 
 ---
 
@@ -282,3 +312,43 @@ jobs:
   test:           # Lint, typecheck, test, build
   docker-build:   # Build Docker images (depends on test)
 ```
+
+---
+
+### 3D Visualization App (2025-01-15)
+
+Added a new Three.js-powered 3D visualization app showcasing advanced line rendering.
+
+**Features:**
+
+- Hilbert 3D curve generation with Catmull-Rom spline interpolation
+- Fat lines rendering using Three.js Line2 and LineMaterial
+- Interactive controls via lil-gui:
+  - Line type toggle (Line2 vs gl.LINE)
+  - Line width adjustment (1-10)
+  - Dashed line support with scale/gap controls
+  - World units toggle
+  - Alpha to coverage option
+- OrbitControls for camera manipulation
+- Rainbow color gradient along the curve
+
+**Tech Stack:**
+
+- React 18 + TypeScript
+- @react-three/fiber (React Three.js renderer)
+- @react-three/drei (OrbitControls)
+- Three.js addons (Line2, LineMaterial, LineGeometry)
+- lil-gui for controls
+- Vite for bundling
+
+**Files Created:**
+
+- `apps/3d-visualization/` - Complete React app structure
+- `apps/3d-visualization/src/components/FatLinesScene.tsx` - Three.js scene component
+- `apps/3d-visualization/src/utils/hilbert.ts` - Hilbert curve generator
+- `infra/docker/Dockerfile.3d-visualization` - Docker configuration
+
+**Updated:**
+
+- `docker-compose.yml` - Added 3d-visualization service (port 3003)
+- `.github/workflows/frontend.yml` - Added Docker build for new app

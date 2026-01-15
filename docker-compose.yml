@@ -17,6 +17,14 @@ services:
       - "3002:80"
     restart: unless-stopped
 
+  3d-visualization:
+    build:
+      context: .
+      dockerfile: infra/docker/Dockerfile.3d-visualization
+    ports:
+      - "3003:80"
+    restart: unless-stopped
+
   # Nginx reverse proxy (optional)
   nginx:
     image: nginx:alpine
@@ -27,6 +35,7 @@ services:
     depends_on:
       - data-explorer
       - chat-ui
+      - 3d-visualization
     restart: unless-stopped
     profiles:
       - with-proxy

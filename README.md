@@ -8,7 +8,8 @@ A TypeScript monorepo demonstrating modern web development practices including b
 gendeniz/
 ├── apps/
 │   ├── data-explorer/     # Data exploration app with AI-assisted queries
-│   └── chat-ui/           # Chat interface app with mock responses
+│   ├── chat-ui/           # Chat interface app with mock responses
+│   └── 3d-visualization/  # Three.js 3D graphics demo
 ├── libs/
 │   └── ui/                # Shared React component library
 ├── infra/docker/          # Docker configurations
@@ -56,6 +57,7 @@ pnpm dev
 # Run a specific app
 pnpm --filter @gendeniz/data-explorer dev
 pnpm --filter @gendeniz/chat-ui dev
+pnpm --filter @gendeniz/3d-visualization dev
 ```
 
 ### Building
@@ -107,6 +109,7 @@ Apps will be available at:
 
 - Data Explorer: http://localhost:3001
 - Chat UI: http://localhost:3002
+- 3D Visualization: http://localhost:3003
 
 ## Apps
 
@@ -127,6 +130,18 @@ A chat interface demonstrating:
 - Typing indicators
 - Auto-scroll to latest messages
 - Mock assistant responses
+
+### 3D Visualization
+
+A Three.js-powered 3D graphics demo featuring:
+
+- Hilbert 3D curve with smooth spline interpolation
+- Fat lines rendering using Line2 and LineMaterial
+- Interactive controls for line width, dashing, and rendering mode
+- OrbitControls for camera manipulation
+- Rainbow color gradient visualization
+
+Built with @react-three/fiber for React integration.
 
 ## UI Library (@gendeniz/ui)
 
@@ -150,16 +165,6 @@ GitHub Actions workflows handle:
 - Running tests
 - Building all packages
 - Docker image builds (on merge to main)
-
-## Future Enhancements
-
-The project plan includes additional features that can be implemented:
-
-- Rust/WebAssembly image processing library (Photon-rs)
-- Video FX app with webcam filters and 3D visualization
-- Terraform infrastructure configuration
-
-See `docs/PLANNING.md` for the complete implementation plan.
 
 ## License
 

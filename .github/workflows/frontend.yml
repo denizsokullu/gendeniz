@@ -65,3 +65,6 @@ jobs:
 
       - name: Build data-explorer Docker image
         run: docker build -f infra/docker/Dockerfile.data-explorer -t gendeniz/data-explorer:test .
+
+      - name: Build 3d-visualization Docker image
+        run: docker build -f infra/docker/Dockerfile.3d-visualization -t gendeniz/3d-visualization:test .
