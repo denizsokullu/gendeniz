@@ -22,7 +22,9 @@ export function QueryResult({ result }: QueryResultProps) {
               <Badge variant="primary" size="sm">
                 Query
               </Badge>
-              <span className="text-xs text-gray-400">{result.timestamp.toLocaleTimeString()}</span>
+              <span className="text-xs text-text-muted">
+                {result.timestamp.toLocaleTimeString()}
+              </span>
             </div>
             {result.rowsAffected !== undefined && (
               <Badge variant="info" size="sm">
@@ -31,10 +33,10 @@ export function QueryResult({ result }: QueryResultProps) {
             )}
           </div>
 
-          <p className="text-sm italic text-gray-700">&ldquo;{result.query}&rdquo;</p>
+          <p className="text-sm italic text-text-secondary">&ldquo;{result.query}&rdquo;</p>
 
-          <div className="rounded-lg bg-gray-50 p-4">
-            <p className="whitespace-pre-wrap text-sm text-gray-900">{result.response}</p>
+          <div className="rounded-lg bg-surface-elevated p-4">
+            <p className="whitespace-pre-wrap text-sm text-text-primary">{result.response}</p>
           </div>
         </div>
       </CardBody>

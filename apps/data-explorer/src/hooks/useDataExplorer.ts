@@ -229,16 +229,17 @@ export function useDataExplorer(): UseDataExplorerReturn {
     return stats;
   }, [data]);
 
-  const toggleSort = useCallback((column: string) => {
-    setSortColumn((prevColumn) => {
-      if (prevColumn === column) {
+  const toggleSort = useCallback(
+    (column: string) => {
+      if (sortColumn === column) {
         setSortDirection((prev) => (prev === 'asc' ? 'desc' : 'asc'));
-        return column;
+      } else {
+        setSortColumn(column);
+        setSortDirection('asc');
       }
-      setSortDirection('asc');
-      return column;
-    });
-  }, []);
+    },
+    [sortColumn]
+  );
 
   const toggleColumnVisibility = useCallback((column: string) => {
     setVisibleColumns((prev) => {

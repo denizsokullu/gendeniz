@@ -32,7 +32,7 @@ export function ChatInput({ onSend, disabled }: ChatInputProps) {
         placeholder="Type your message..."
         disabled={disabled}
         rows={1}
-        className="flex-1 resize-none rounded-xl border border-gray-300 px-4 py-3 text-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-gray-50 disabled:text-gray-500"
+        className="flex-1 resize-none rounded-xl border border-border bg-surface px-4 py-3 text-sm text-text-primary placeholder:text-text-muted focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-surface-elevated disabled:text-text-muted"
         style={{ minHeight: '44px', maxHeight: '120px' }}
       />
       <Button onClick={handleSend} disabled={disabled || !input.trim()} className="h-11">

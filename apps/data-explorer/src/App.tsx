@@ -36,14 +36,14 @@ export default function App() {
   } = useDataExplorer();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-gray-200 bg-white">
+      <header className="border-b border-border bg-surface">
         <div className="mx-auto max-w-7xl px-4 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Data Explorer</h1>
-              <p className="text-sm text-gray-500">
+              <h1 className="text-2xl font-bold text-text-primary">Data Explorer</h1>
+              <p className="text-sm text-text-muted">
                 Upload and explore CSV or JSON datasets with AI assistance
               </p>
             </div>
@@ -59,7 +59,7 @@ export default function App() {
       {/* Main Content */}
       <main className="mx-auto max-w-7xl px-4 py-8">
         {error && (
-          <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-4 text-red-700">
+          <div className="mb-6 rounded-lg border border-error/30 bg-error/10 p-4 text-error">
             {error}
           </div>
         )}
@@ -72,10 +72,10 @@ export default function App() {
             <Card>
               <CardBody>
                 <div className="text-center">
-                  <h3 className="mb-2 text-lg font-medium text-gray-900">
+                  <h3 className="mb-2 text-lg font-medium text-text-primary">
                     Or try with sample data
                   </h3>
-                  <p className="mb-4 text-sm text-gray-500">
+                  <p className="mb-4 text-sm text-text-muted">
                     Load a sample stock market dataset to explore the features
                   </p>
                   <Button onClick={loadSampleData} isLoading={isLoading} variant="primary">
@@ -84,9 +84,9 @@ export default function App() {
                       : 'Load Sample Stock Data'}
                   </Button>
                   {isLoading && (
-                    <div className="mt-4 h-2 w-full rounded-full bg-gray-200">
+                    <div className="mt-4 h-2 w-full rounded-full bg-surface-overlay">
                       <div
-                        className="h-2 rounded-full bg-primary-600 transition-all duration-300"
+                        className="h-2 rounded-full bg-primary-500 transition-all duration-300"
                         style={{ width: `${loadingProgress}%` }}
                       />
                     </div>
@@ -103,7 +103,7 @@ export default function App() {
             {/* Query Results */}
             {queryResults.length > 0 && (
               <div className="space-y-4">
-                <h3 className="text-lg font-medium text-gray-900">Query Results</h3>
+                <h3 className="text-lg font-medium text-text-primary">Query Results</h3>
                 {queryResults.map((result) => (
                   <QueryResult key={result.id} result={result} />
                 ))}
@@ -134,13 +134,13 @@ export default function App() {
 
                   {/* Page Size */}
                   <div className="w-32">
-                    <label className="mb-1 block text-sm font-medium text-gray-700">
+                    <label className="mb-1 block text-sm font-medium text-text-secondary">
                       Rows per page
                     </label>
                     <select
                       value={pageSize}
                       onChange={(e) => setPageSize(Number(e.target.value))}
-                      className="block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500"
+                      className="block w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-primary-500"
                     >
                       <option value={10}>10</option>
                       <option value={25}>25</option>
@@ -152,7 +152,7 @@ export default function App() {
 
                 {/* Column Visibility */}
                 <div className="mt-4">
-                  <label className="mb-2 block text-sm font-medium text-gray-700">
+                  <label className="mb-2 block text-sm font-medium text-text-secondary">
                     Visible Columns
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -184,7 +184,7 @@ export default function App() {
             {/* Pagination */}
             {totalPages > 1 && (
               <div className="flex items-center justify-between">
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-text-muted">
                   Showing {(currentPage - 1) * pageSize + 1} to{' '}
                   {Math.min(currentPage * pageSize, filteredData.length)} of {filteredData.length}{' '}
                   results
@@ -198,7 +198,7 @@ export default function App() {
                   >
                     Previous
                   </Button>
-                  <span className="flex items-center px-3 text-sm text-gray-700">
+                  <span className="flex items-center px-3 text-sm text-text-secondary">
                     Page {currentPage} of {totalPages}
                   </span>
                   <Button

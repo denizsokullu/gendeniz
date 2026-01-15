@@ -21,18 +21,18 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <div className="w-full">
         {label && (
-          <label htmlFor={selectId} className="mb-1 block text-sm font-medium text-gray-700">
+          <label htmlFor={selectId} className="mb-1 block text-sm font-medium text-text-secondary">
             {label}
           </label>
         )}
         <select
           ref={ref}
           id={selectId}
-          className={`block w-full rounded-lg border px-4 py-2 text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0 ${
+          className={`block w-full rounded-lg border bg-surface px-4 py-2 text-text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0 focus:ring-offset-background ${
             error
-              ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
-              : 'border-gray-300 focus:border-primary-500 focus:ring-primary-500'
-          } disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500 ${className} `}
+              ? 'border-error focus:border-error focus:ring-error'
+              : 'border-border focus:border-primary-500 focus:ring-primary-500'
+          } disabled:cursor-not-allowed disabled:bg-surface-elevated disabled:text-text-muted ${className} `}
           {...props}
         >
           {placeholder && (
@@ -46,8 +46,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             </option>
           ))}
         </select>
-        {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
-        {helperText && !error && <p className="mt-1 text-sm text-gray-500">{helperText}</p>}
+        {error && <p className="mt-1 text-sm text-error">{error}</p>}
+        {helperText && !error && <p className="mt-1 text-sm text-text-muted">{helperText}</p>}
       </div>
     );
   }

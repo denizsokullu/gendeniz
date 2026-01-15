@@ -10,12 +10,15 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses = {
   primary:
-    'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 disabled:bg-primary-300',
-  secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500 disabled:bg-gray-300',
+    'bg-primary-500 text-text-inverse hover:bg-primary-400 focus:ring-primary-500 disabled:bg-primary-700 disabled:text-primary-900',
+  secondary:
+    'bg-surface-elevated text-text-primary hover:bg-surface-overlay focus:ring-primary-500 disabled:bg-surface disabled:text-text-muted',
   outline:
-    'border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500 disabled:border-primary-300 disabled:text-primary-300',
-  ghost: 'text-gray-700 hover:bg-gray-100 focus:ring-gray-500 disabled:text-gray-300',
-  danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 disabled:bg-red-300',
+    'border-2 border-primary-500 text-primary-500 hover:bg-primary-500/10 focus:ring-primary-500 disabled:border-primary-700 disabled:text-primary-700',
+  ghost:
+    'text-text-secondary hover:bg-surface-elevated hover:text-text-primary focus:ring-primary-500 disabled:text-text-muted',
+  danger:
+    'bg-error text-white hover:bg-red-500 focus:ring-error disabled:bg-red-900 disabled:text-red-300',
 };
 
 const sizeClasses = {

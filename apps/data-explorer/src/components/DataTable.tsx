@@ -20,7 +20,7 @@ export function DataTable({
   const visibleHeaders = headers.filter((h) => visibleColumns.has(h));
 
   if (rows.length === 0) {
-    return <div className="py-12 text-center text-gray-500">No data to display</div>;
+    return <div className="py-12 text-center text-text-muted">No data to display</div>;
   }
 
   return (

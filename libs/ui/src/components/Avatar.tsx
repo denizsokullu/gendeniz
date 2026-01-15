@@ -17,10 +17,10 @@ const sizeClasses = {
 };
 
 const statusColors = {
-  online: 'bg-green-500',
-  offline: 'bg-gray-400',
-  away: 'bg-yellow-500',
-  busy: 'bg-red-500',
+  online: 'bg-success',
+  offline: 'bg-text-muted',
+  away: 'bg-warning',
+  busy: 'bg-error',
 };
 
 const statusSizes = {
@@ -55,18 +55,18 @@ export function Avatar({
         <img
           src={src}
           alt={alt || name || 'Avatar'}
-          className={`${sizeClasses[size]} rounded-full object-cover ring-2 ring-white`}
+          className={`${sizeClasses[size]} rounded-full object-cover ring-2 ring-surface`}
         />
       ) : (
         <div
-          className={`${sizeClasses[size]} flex items-center justify-center rounded-full bg-primary-100 font-medium text-primary-700 ring-2 ring-white`}
+          className={`${sizeClasses[size]} flex items-center justify-center rounded-full bg-primary-500/20 font-medium text-primary-400 ring-2 ring-surface`}
         >
           {name ? getInitials(name) : '?'}
         </div>
       )}
       {status && (
         <span
-          className={`absolute bottom-0 right-0 block ${statusSizes[size]} ${statusColors[status]} rounded-full ring-2 ring-white`}
+          className={`absolute bottom-0 right-0 block ${statusSizes[size]} ${statusColors[status]} rounded-full ring-2 ring-surface`}
         />
       )}
     </div>

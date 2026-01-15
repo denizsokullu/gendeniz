@@ -1,6 +1,10 @@
 // Styles
 import './styles.css';
 
+// Theme
+export { theme } from './theme';
+export type { Theme, ThemeColors } from './theme';
+
 // Components
 export { Button } from './components/Button';
 export type { ButtonProps } from './components/Button';

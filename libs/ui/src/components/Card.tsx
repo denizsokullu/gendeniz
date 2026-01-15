@@ -21,7 +21,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     return (
       <div
         ref={ref}
-        className={`overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md ${className}`}
+        className={`overflow-hidden rounded-xl border border-border bg-surface shadow-md ${className}`}
         {...props}
       >
         {children}
@@ -37,7 +37,7 @@ export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
     return (
       <div
         ref={ref}
-        className={`border-b border-gray-200 bg-gray-50 px-6 py-4 ${className}`}
+        className={`border-b border-border bg-surface-elevated px-6 py-4 ${className}`}
         {...props}
       >
         {children}
@@ -65,7 +65,7 @@ export const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
     return (
       <div
         ref={ref}
-        className={`border-t border-gray-200 bg-gray-50 px-6 py-4 ${className}`}
+        className={`border-t border-border bg-surface-elevated px-6 py-4 ${className}`}
         {...props}
       >
         {children}

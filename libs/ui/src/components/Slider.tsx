@@ -15,12 +15,12 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
       <div className="w-full">
         <div className="mb-1 flex items-center justify-between">
           {label && (
-            <label htmlFor={sliderId} className="block text-sm font-medium text-gray-700">
+            <label htmlFor={sliderId} className="block text-sm font-medium text-text-secondary">
               {label}
             </label>
           )}
           {showValue && (
-            <span className="text-sm font-medium text-primary-600">{displayValue}</span>
+            <span className="text-sm font-medium text-primary-500">{displayValue}</span>
           )}
         </div>
         <input
@@ -28,7 +28,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
           id={sliderId}
           type="range"
           value={value}
-          className={`h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 accent-primary-600 disabled:cursor-not-allowed disabled:opacity-50 ${className} `}
+          className={`h-2 w-full cursor-pointer appearance-none rounded-lg bg-surface-overlay accent-primary-500 disabled:cursor-not-allowed disabled:opacity-50 ${className} `}
           {...props}
         />
       </div>

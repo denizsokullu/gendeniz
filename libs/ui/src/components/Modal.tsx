@@ -53,7 +53,7 @@ export function Modal({
     <div className="fixed inset-0 z-50 overflow-y-auto">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 transition-opacity"
+        className="fixed inset-0 bg-black/70 transition-opacity"
         onClick={closeOnOverlayClick ? onClose : undefined}
         aria-hidden="true"
       />
@@ -61,17 +61,17 @@ export function Modal({
       {/* Modal container */}
       <div className="flex min-h-full items-center justify-center p-4">
         <div
-          className={`relative w-full transform rounded-xl bg-white shadow-xl transition-all ${sizeClasses[size]}`}
+          className={`relative w-full transform rounded-xl bg-surface-elevated shadow-xl shadow-black/20 transition-all ${sizeClasses[size]}`}
           role="dialog"
           aria-modal="true"
         >
           {/* Header */}
           {title && (
-            <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
-              <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+            <div className="flex items-center justify-between border-b border-border px-6 py-4">
+              <h3 className="text-lg font-semibold text-text-primary">{title}</h3>
               <button
                 onClick={onClose}
-                className="rounded-lg p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                className="rounded-lg p-1 text-text-muted hover:text-text-secondary focus:outline-none focus:ring-2 focus:ring-primary-500"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path

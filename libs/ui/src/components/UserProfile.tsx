@@ -44,9 +44,11 @@ export function UserProfile({
     <div className={`flex items-center gap-3 ${className}`} {...props}>
       <Avatar src={avatarSrc} name={name} size={config.avatar} status={status} />
       <div className="min-w-0 flex-1">
-        <p className={`truncate font-medium text-gray-900 ${config.nameClass}`}>{name}</p>
-        {email && <p className={`truncate text-gray-500 ${config.emailClass}`}>{email}</p>}
-        {role && !email && <p className={`truncate text-gray-500 ${config.emailClass}`}>{role}</p>}
+        <p className={`truncate font-medium text-text-primary ${config.nameClass}`}>{name}</p>
+        {email && <p className={`truncate text-text-muted ${config.emailClass}`}>{email}</p>}
+        {role && !email && (
+          <p className={`truncate text-text-muted ${config.emailClass}`}>{role}</p>
+        )}
       </div>
     </div>
   );

@@ -47,14 +47,14 @@ export function FileUpload({ onFileSelect, isLoading, accept = '.csv,.json' }: F
     <Card>
       <CardBody>
         <div
-          className={`rounded-lg border-2 border-dashed p-12 text-center transition-colors ${isDragging ? 'border-primary-500 bg-primary-50' : 'border-gray-300'} ${isLoading ? 'pointer-events-none opacity-50' : ''} `}
+          className={`rounded-lg border-2 border-dashed p-12 text-center transition-colors ${isDragging ? 'border-primary-500 bg-primary-500/10' : 'border-border'} ${isLoading ? 'pointer-events-none opacity-50' : ''} `}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
         >
           <div className="flex flex-col items-center gap-4">
             <svg
-              className="h-12 w-12 text-gray-400"
+              className="h-12 w-12 text-text-muted"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -67,10 +67,10 @@ export function FileUpload({ onFileSelect, isLoading, accept = '.csv,.json' }: F
               />
             </svg>
             <div>
-              <p className="text-lg font-medium text-gray-700">
+              <p className="text-lg font-medium text-text-secondary">
                 {isDragging ? 'Drop your file here' : 'Drag and drop your file here'}
               </p>
-              <p className="mt-1 text-sm text-gray-500">or click to browse</p>
+              <p className="mt-1 text-sm text-text-muted">or click to browse</p>
             </div>
             <input
               type="file"
@@ -81,11 +81,11 @@ export function FileUpload({ onFileSelect, isLoading, accept = '.csv,.json' }: F
               disabled={isLoading}
             />
             <label htmlFor="file-upload" className="cursor-pointer">
-              <span className="inline-flex items-center justify-center rounded-lg border-2 border-primary-600 px-4 py-2 text-base font-medium text-primary-600 transition-colors hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
+              <span className="inline-flex items-center justify-center rounded-lg border-2 border-primary-500 px-4 py-2 text-base font-medium text-primary-500 transition-colors hover:bg-primary-500/10 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background">
                 {isLoading ? 'Processing...' : 'Select File'}
               </span>
             </label>
-            <p className="text-xs text-gray-400">Supported formats: CSV, JSON</p>
+            <p className="text-xs text-text-muted">Supported formats: CSV, JSON</p>
           </div>
         </div>
       </CardBody>

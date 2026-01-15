@@ -35,7 +35,7 @@ export function DataPrompt({ onQuery, isLoading }: DataPromptProps) {
       <CardBody>
         <div className="space-y-4">
           <div>
-            <label className="mb-2 block text-sm font-medium text-gray-700">
+            <label className="mb-2 block text-sm font-medium text-text-secondary">
               Ask about your data
             </label>
             <textarea
@@ -45,19 +45,19 @@ export function DataPrompt({ onQuery, isLoading }: DataPromptProps) {
               placeholder="Enter a natural language query to explore your data... (Cmd/Ctrl + Enter to submit)"
               disabled={isLoading}
               rows={3}
-              className="w-full resize-none rounded-lg border border-gray-300 px-4 py-3 text-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-gray-50 disabled:text-gray-500"
+              className="w-full resize-none rounded-lg border border-border bg-surface px-4 py-3 text-sm text-text-primary placeholder:text-text-muted focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:bg-surface-elevated disabled:text-text-muted"
             />
           </div>
 
           <div className="flex items-center justify-between">
             <div className="flex flex-wrap gap-2">
-              <span className="mr-2 text-xs text-gray-500">Try:</span>
+              <span className="mr-2 text-xs text-text-muted">Try:</span>
               {sampleQueries.map((query) => (
                 <Badge
                   key={query}
                   variant="default"
                   size="sm"
-                  className="cursor-pointer hover:bg-gray-200"
+                  className="cursor-pointer hover:bg-surface-overlay"
                   onClick={() => setPrompt(query)}
                 >
                   {query}
