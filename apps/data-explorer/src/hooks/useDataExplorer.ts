@@ -190,6 +190,7 @@ export function useDataExplorer(): UseDataExplorerReturn {
         response: response.text,
         timestamp: new Date(),
         rowsAffected: response.rowCount,
+        tokensUsed: Math.round(Math.random() * 400),
       };
 
       setQueryResults((prev) => [result, ...prev]);

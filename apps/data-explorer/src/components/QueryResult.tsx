@@ -6,6 +6,7 @@ export interface QueryResultData {
   response: string;
   timestamp: Date;
   rowsAffected?: number;
+  tokensUsed: number;
 }
 
 interface QueryResultProps {
@@ -26,11 +27,16 @@ export function QueryResult({ result }: QueryResultProps) {
                 {result.timestamp.toLocaleTimeString()}
               </span>
             </div>
-            {result.rowsAffected !== undefined && (
+            <div className="flex gap-2">
+              {result.rowsAffected !== undefined && (
+                <Badge variant="info" size="sm">
+                  {result.rowsAffected} rows
+                </Badge>
+              )}
               <Badge variant="info" size="sm">
-                {result.rowsAffected} rows
+                {result.tokensUsed} tokens
               </Badge>
-            )}
+            </div>
           </div>
 
           <p className="text-sm italic text-text-secondary">&ldquo;{result.query}&rdquo;</p>
